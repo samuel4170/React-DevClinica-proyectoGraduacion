@@ -1,0 +1,48 @@
+/* styles.css */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+  margin: 0 auto; /* Esto centrará el contenido horizontalmente */
+  max-width: 1200px; /* Cambia esto según el ancho máximo deseado */
+  padding: 0 1rem; /* Agrega un pequeño espaciado en los lados */
+}
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin: 2rem auto; /* Ajusta el margen superior e inferior según sea necesario */
+  max-width: 1200px; /* Mismo ancho máximo que en el contenedor principal */
+  padding: 0 1rem; /* Agrega el mismo espaciado en los lados */
+}
+
+
+/* Add styles for the custom menu */
+.custom-menu {
+  display: flex;
+  flex-direction: column;
+  width: auto;
+  min-width: 200px; /* Adjust this value as needed */
+}
+
+/* Style for each menu item */
+.MuiMenuItem-root {
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  white-space: nowrap; /* Prevent text wrapping */
+  display: flex;
+  justify-content: center; /* Center the text horizontally */
+  align-items: center; /* Center the text vertically */
+}
+
+.MuiMenuItem-root:hover {
+  background-color: #f0f0f0;
+}
+
+
+.focused-input {
+  background-color: #1e272e; /* Color de fondo deseado */
+  color: white !important; /* Color del texto deseado, con !important para asegurarte de que se aplique */
+}

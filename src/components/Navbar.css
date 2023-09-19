@@ -1,0 +1,43 @@
+   .custom-menu {
+    /* ...otros estilos... */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centrar horizontalmente */
+    justify-content: center; /* Centrar verticalmente */
+  }
+
+  
+  /* Navbar.css */
+.custom-menu {
+    position: absolute;
+    top: 50%; /* Move the menu to the vertical center */
+    left: 50%; /* Move the menu to the horizontal center */
+    transform: translate(-50%, -50%); /* Center the menu */
+    width: 100%;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Center horizontally */
+    justify-content: center; /* Center vertically */
+  }
+  
+
+  body {
+    margin: 0;
+    padding: 0;
+    background-image: url('../img/fondo.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    overflow-x: hidden;
+  }
+  
+  .container {
+    width: 100%;
+    max-width: 800px;
+  }
+  

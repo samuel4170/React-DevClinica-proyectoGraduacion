@@ -1,0 +1,46 @@
+/* styles.css */
+.container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    margin: 0 auto; /* Esto centrará el contenido horizontalmente */
+    max-width: 1200px; /* Cambia esto según el ancho máximo deseado */
+    padding: 0 1rem; /* Agrega un pequeño espaciado en los lados */
+  }
+  
+  .card-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 1rem;
+    margin: 2rem auto; /* Ajusta el margen superior e inferior según sea necesario */
+    max-width: 1200px; /* Mismo ancho máximo que en el contenedor principal */
+    padding: 0 1rem; /* Agrega el mismo espaciado en los lados */
+  }
+  
+
+  /* styles.css */
+.doctors-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin: 2rem auto;
+  max-width: 1200px;
+  padding: 0 1rem;
+}
+
+
+.cita-card {
+  /* Estilos generales para las citas */
+  padding: 1rem;
+  display: flex;
+  justify-content: space-between;
+  transition: background-color 0.3s ease;
+}
+
+.cita-futura {
+  background-color: #818181;
+}
+
+.cita-pasada {
+  background-color: #121212;
+}
