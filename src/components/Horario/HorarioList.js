@@ -28,7 +28,16 @@ export default function HorarioList() {
   const loadHorarios = async () => {
     const response = await fetch('https://deploy-mysql-proyectograduacion-production.up.railway.app/api/horarios');
     const data = await response.json();
-    setHorarios(data);
+        // Convertir las horas en minutos para facilitar la comparación
+        const horariosOrdenados = data.map((horario) => {
+          const [hora, minutos] = horario.HoraInicio.split(':');
+          const horaEnMinutos = parseInt(hora) * 60 + parseInt(minutos);
+          return { ...horario, horaEnMinutos };
+        });
+    
+        // Ordenar la lista por horaEnMinutos
+        horariosOrdenados.sort((a, b) => a.horaEnMinutos - b.horaEnMinutos);
+    setHorarios(horariosOrdenados);
   };
 
   const handleDelete = async (IdHorario) => {

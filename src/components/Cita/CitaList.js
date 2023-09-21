@@ -345,6 +345,40 @@ return (
 ))}
 </div>
 
+
+{filterCitas().length === 0 && (
+  <div
+    style={{
+      display: 'flex',
+      flexDirection: 'column',
+      alignItems: 'center',
+      justifyContent: 'center',
+      height: '300px',
+      backgroundColor: '#48DFC8', 
+    }}
+  >
+    <span
+      role="img"
+      aria-label="Emoji Triste"
+      style={{
+        fontSize: '40px', 
+        marginBottom: '20px', 
+        animation: 'bounce 1s infinite',
+      }}
+    >
+      <img
+        src={require('../img/No hay citas.gif')}
+        alt="Emoji triste"
+        style={{ width: '200px', height: '200px' }} // Tamaño del gif
+      />
+    </span>
+    <p style={{ fontSize: '24px', fontWeight: 'bold' }}>
+      Vaya, no tienes citas agendadas
+    </p>
+  </div>
+)}
+
+
       {/* Diálogo de confirmación */}
       <Dialog open={deleteConfirmationOpen} onClose={closeDeleteConfirmationDialog}>
         <DialogTitle>Confirmar Eliminación</DialogTitle>

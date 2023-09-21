@@ -15,10 +15,17 @@ export default function HorarioForm() {
 
   const [dias, setDias] = useState([]);
 
-const hoursList = Array.from({ length: 12 }, (_, index) => {
-  const hour = (index + 7).toString().padStart(2, '0');
-  return `${hour}:00`;
-});
+  const hoursList = Array.from({ length: 24 }, (_, index) => {
+    const hour = Math.floor(index / 2) + 7;
+    const minutes = index % 2 === 0 ? '00' : '30';
+    return `${hour.toString().padStart(2, '0')}:${minutes}`;
+  });
+  
+  console.log(hoursList);
+  
+  
+  console.log(hoursList);
+  
 
   const navigate = useNavigate();
   const params = useParams();

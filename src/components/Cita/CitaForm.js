@@ -29,6 +29,8 @@ export default function CitaForm() {
   //validacion de horarios
   const [horariosOcupados, setHorariosOcupados] = useState([]);
   const [horariosOcupadosPorMedico, setHorariosOcupadosPorMedico] = useState({});
+  const [horariosDisponibles, setHorariosDisponibles] = useState([]);
+
 
   const [citasExistentes, setCitasExistentes] = useState([]);
 
@@ -246,7 +248,8 @@ export default function CitaForm() {
     fetch('https://deploy-mysql-proyectograduacion-production.up.railway.app/api/horarios')
     .then((response) => response.json())
     .then((data) => {
-      setIdHorarios(data);
+      data.sort((a, b) => a.HoraInicio.localeCompare(b.HoraInicio));
+      setHorariosDisponibles(data);
     });
 
       // Cargar los datos de los tipos de Idhorario desde la API
@@ -408,14 +411,14 @@ return (
 
 {/* validacion del horario  */}
           <Autocomplete
-            options={IdHorarios.filter((horario) => {
+            options={horariosDisponibles.filter((horario) => {
               const isHorarioOcupado = horariosOcupadosPorMedico[cita.IdMedico]?.some(
                 (ocupado) => ocupado.FechaCita === cita.FechaCita && ocupado.IdHorario === horario.IdHorario
               );
               return !isHorarioOcupado;
             })}
             getOptionLabel={(option) => option.HoraInicio}
-            value={IdHorarios.find((option) => option.IdHorario === cita.IdHorario) || null}
+            value={horariosDisponibles.find((option) => option.IdHorario === cita.IdHorario) || null}
             onChange={(event, value) => handleHorarioChange(value)}
             renderInput={(params) => (
               <div>
@@ -433,13 +436,13 @@ return (
                 />
                 {cita.IdMedico && cita.FechaCita && (
                   <>
-                    {IdHorarios.length === 0 ? (
+                    {horariosDisponibles.length === 0 ? (
                       <Typography variant="body2" color="info">
                         Horarios no disponibles en este día
                       </Typography>
                     ) : (
                       <>
-                    {IdHorarios.every((horario) =>
+                    {horariosDisponibles.every((horario) =>
                       (horariosOcupadosPorMedico[cita.IdMedico]?.some(
                         (ocupado) =>
                           ocupado.FechaCita === cita.FechaCita &&
