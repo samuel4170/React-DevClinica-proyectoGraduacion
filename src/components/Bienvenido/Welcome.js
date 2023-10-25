@@ -27,7 +27,7 @@ export default function WelcomePage() {
       <img
         src={welcome}
         alt="Welcome"
-        style={{ maxWidth: '100%', height: 'auto' }} // Ajusta el tamaño de la imagen
+        style={{ maxWidth: '100%', height: 'auto' }} 
       />    
     </div>
   );
